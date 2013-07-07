@@ -1,0 +1,31 @@
+{
+  "name": "blog-maker",
+  "version": "0.0.0",
+  "description": "Blog generator from .md post files, highly inspired from blog.nodejs.org",
+  "main": "blog_maker.js",
+  "dependencies" : {
+    "node-static": "*",
+    "ejs": "~0.7.1",
+    "glob": "~3.1.10",
+    "marked": "~0.2.5",
+    "mkdirp": "~0.3.3",
+    "semver": "~1.0.14"
+  },
+  "scripts": {
+    "test": "node example/example_run.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/davidsantosdias/blog-maker.git"
+  },
+  "keywords": [
+    "blog",
+    "node",
+    "markdown"
+  ],
+  "author": "David Dias (daviddias.p@gmail.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/davidsantosdias/blog-maker/issues"
+  }
+}

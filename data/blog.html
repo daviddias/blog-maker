@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+
+<html lang="en"> 
+<head>
+  <meta charset="utf-8" />
+  <meta name="keywords" content="" />
+  <meta name="description" content=""/>
+
+  <style>    
+    #column1 h1 {
+      clear:both;
+    }
+    #column1 {
+      margin: 200px;
+      margin-top: 100px;  
+      font-size: 14px;
+    }
+    #column1 li, #content h1 + p {
+      color:inherit;
+      font-size: 14px;
+      line-height:24px;
+    }
+    #column1 li p + ul {
+      margin-top:-1em;
+    }
+    #column1 ul li ul {
+      font-size:12px;
+      line-height:24px;
+      padding-left: 0;
+    }
+    #column1 ul li ul li {
+      list-style:none;
+      margin-left:0;
+    }
+    #column1 ul li ul li:before {
+      content: "- ";
+    }
+    #content #column1 p.meta, #content #column1 p.respond {
+      font-size: 14px;
+      line-height: 24px;
+    }
+    #content #column1 p.respond {
+      font-style:italic;
+      padding:2em 0;
+    }
+    div.post-in-feed { padding-bottom:1em; }
+    p.next { float:right; width: 40%; text-align:right; }
+    p.prev { float:left; width:40%; text-align:left; }
+
+    pre { overflow: auto; }
+  </style>
+
+  <!--[if lt IE 9]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+  <![endif]-->
+  <!-- IE Fix for HTML5 Tags -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <title><%= title || "Title of Your Blog" %></title>
+  <link rel="alternate" type="application/rss+xml"
+    title="Title of Your Blog"
+    href="http://yourdomain.com/feed<%=
+      (typeof posts !== 'undefined') ? uri : '/'
+    %>">
+</head>
+<body>
+  <div id="content" class="clearfix">  
+    <div id="column1" class="interior">
+      <h1><%- title %></h1>
+
+      <% if (typeof post !== 'undefined') {
+        // just one post on this page
+        %>
+        
+        <p class="meta"><%-
+          post.date.toUTCString().replace(/ GMT$/, '') + ' UTC' +
+          (post.author ? ' - ' + post.author : '') +
+          (post.category ? ' - <a href="/' + post.category + '/">' +
+                            post.category + '</a>' : '')
+          %></p>
+
+          <%- post.content %>
+
+          <%
+          if (post.next || post.prev) {
+            if (post.prev) {
+              %><p class="prev"><a href="<%=
+                post.prev.permalink
+              %>">&larr; <%=
+                post.prev.title
+              %></a></p>
+              <%
+            }
+            if (post.next) {
+              %><p class="next"><a href="<%=
+                post.next.permalink
+              %>"><%=
+                post.next.title
+              %> &rarr;</a></p>
+              <%
+            }
+          }
+        } else {  // not single post page
+          if (paginated && total > 1 ) {
+            if (page > 0) {
+              // add 1 to all of the displayed numbers, because
+              // humans are not zero-indexed like they ought to be.
+              %>
+              <p class="prev"><a href="<%= uri + (page - 1) %>">
+                &larr; Page <%- page %>
+              </a></p>
+              <%
+            }
+            if (page < total - 1) { %>
+              <p class="next"><a href="<%= uri + (page + 1) %>">
+                Page <%- page + 2 %> &rarr;
+              </a></p>
+              <%
+            }
+          }
+
+          posts.forEach(function(post) {
+            %>
+            <div class="post-in-feed">
+              <h1><a href="<%=
+                post.permalink
+              %>" class="permalink"><%-
+                post.title
+              %></a></h1>
+
+              <p class="meta"><%-
+                post.date.toUTCString().replace(/ GMT$/, '') + ' UTC' +
+                (post.author ? ' - ' + post.author : '') +
+                (post.category ? ' - <a href="/' + post.category + '/">' +
+                                  post.category + '</a>' : '')
+                %></p>
+
+              <%- post.content %>
+            </div>
+            <%
+          });
+
+          if (paginated && total > 1 ) {
+            if (page > 0) {
+              // add 1 to all of the displayed numbers, because
+              // humans are not zero-indexed like they ought to be.
+              %>
+              <p class="prev"><a href="<%= uri + (page - 1) %>">
+                &larr; Page <%- page %>
+              </a></p>
+              <%
+            }
+            if (page < total - 1) { %>
+              <p class="next"><a href="<%= uri + (page + 1) %>">
+                Page <%- page + 2 %> &rarr;
+              </a></p>
+              <%
+            }
+          } // pagination
+        } // not a single post
+        %>
+    </div>
+  </div>        
+        
+
+</body>
+</html>
+
+

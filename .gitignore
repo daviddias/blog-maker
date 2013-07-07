@@ -10,5 +10,8 @@ lib-cov
 pids
 logs
 results
+public
+node-modules
+myDomainTests
 
 npm-debug.log
