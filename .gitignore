@@ -12,7 +12,7 @@ pids
 logs
 results
 public
-node-modules
+node_modules
 myDomainTests
 
 npm-debug.log
