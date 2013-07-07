@@ -1,6 +1,6 @@
 {
   "name": "blog-maker",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Blog generator from .md post files, highly inspired from blog.nodejs.org",
   "main": "blog_maker.js",
   "dependencies" : {
