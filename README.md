@@ -6,7 +6,7 @@ Blog generator from .md post files, highly inspired from blog.nodejs.org
 ## How to use
 
 ```javascript
-var blogMaker = require('./../blog_maker.js');
+var blogMaker = require('blog_maker.js');
 //blogMaker(<whereThePostsAre>, <folderWhereToPutGenFiles>, <blogPageTeamplate>, <rss template> [, blogPath , numberPostPerPage])
 blogMaker('data/posts', 'public','data/blog.html', 'data/rss.xml')
 ```
