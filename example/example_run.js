@@ -1,7 +1,7 @@
 var static = require('node-static');
 var blogMaker = require('./../blog_maker.js');
 
-blogMaker('data/posts', 'public','data/blog.html', 'data/rss.xml', 'blog')
+blogMaker('data/posts', 'public','data/blog.html', 'data/rss.xml')
 
 var file = new(static.Server)('./public');
 

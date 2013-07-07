@@ -25,18 +25,7 @@ var generate = function(inputPath, outputPath, templatePath, rssTemplatePath, de
 
   if (desiredBlogPath){
     var blogPath = '/' + desiredBlogPath + '/';
-  }
-  else { var blogPath = '/'; }
-
-  console.log('BLOG PATH is : ' + blogPath);
-
-  /* 
-  For 'non module' version
-  var input = path.resolve(process.argv[2]);
-  var output = path.resolve(process.argv[3]);
-  var template = path.resolve(process.argv[4]);
-  var rssTemplate = path.resolve(process.argv[5]);
-  */
+  } else { var blogPath = '/'; }
 
   fs.readFile(template, 'utf8', function(er, contents) {
     if (er) throw er;
@@ -50,14 +39,12 @@ var generate = function(inputPath, outputPath, templatePath, rssTemplatePath, de
     });
   });
 
-
   function readInput() {
     glob(input + '/**/*.md', function(er, files) {
       if (er) throw er;
       readFiles(files);
     });
   }
-
 
   function readFiles(files) {
     var n = files.length;
@@ -80,7 +67,6 @@ var generate = function(inputPath, outputPath, templatePath, rssTemplatePath, de
       }
     }}
   }
-
 
   function parseFile(file, contents) {
     var c = contents.split('\n\n');
@@ -128,7 +114,6 @@ var generate = function(inputPath, outputPath, templatePath, rssTemplatePath, de
     if (m < 10) m = '0' + m;
     var d = d.getDate();
     if (d < 10) d = '0' + d;
-    //var uri = '/' + y + '/' + m + '/' + d + '/' + post.slug + '/';
     var uri = blogPath + y + '/' + m + '/' + d + '/' + post.slug + '/';
     post.data = data;
     post.uri = uri;
@@ -154,7 +139,6 @@ var generate = function(inputPath, outputPath, templatePath, rssTemplatePath, de
       });
     });
   }
-
 
   // sort in reverse chronological order
   // prune out any releases that are not the most recent on their branch.
@@ -235,7 +219,6 @@ var generate = function(inputPath, outputPath, templatePath, rssTemplatePath, de
   }
 
   function writePaginated(title, posts, p, total, id) {
-    //var uri = '/' + encodeURIComponent(title) + '/';
     var uri = blogPath + encodeURIComponent(title) + '/';
     var d = {
       title: title,
@@ -248,11 +231,9 @@ var generate = function(inputPath, outputPath, templatePath, rssTemplatePath, de
     };
     if (p === 0) {
       writeFile(uri, d);
-      //writeFile('/feed' + uri, d, rssTemplate);
       writeFile( blogPath + 'feed' + uri, d, rssTemplate);
     }
     writeFile(uri + p, d);
-    //writeFile( '/feed' + uri + p, d, rssTemplate);
     writeFile( blogPath + 'feed' + uri + p, d, rssTemplate);
   }
 
