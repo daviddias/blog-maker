@@ -38,11 +38,11 @@ tools/generate.js & tools/wp-to-markdown.js - module to generate the blog posts 
 2. Create a new <title of post>.md file
 3. Add title, author, date, slug and category, e.g:
 
-  title: Best post in the world
-  author: Alice
-  date: Fri Jan 12 00:45:13 UTC 2012
-  slug: megapost
-  category: postland
+  * title: Best post in the world
+  * author: Alice
+  * date: Fri Jan 12 00:45:13 UTC 2012
+  * slug: megapost
+  * category: postland
 
 4. Write your post (use html you want)
 `<blockquote></blockquote>`
