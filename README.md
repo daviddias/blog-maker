@@ -39,7 +39,8 @@ example:
 blogMaker('data/posts', 'public', 'data/blog.html', 'data/rss.xml')
 ```
 
-You can find and example using `node-static` to server the blog posts in the 'example' folder
+You can find and example using `node-static` to server the blog posts in the 'example' folder, to try it, just run
+`node example/example_run.js`
 
 
 
