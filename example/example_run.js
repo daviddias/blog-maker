@@ -1,11 +1,11 @@
 var static = require('node-static');
 var blogMaker = require('./../blog_maker.js');
 
-blogMaker({
-    inputPath: 'data/posts',
-    outputPath: 'public',
-    templatePath: 'data/blog.html',
-    rssTemplatePath: 'data/rss.xml',
+blogMaker({ inputPath: 'data/posts'
+          , outputPath: 'public'
+          , templatePath: 'data/blog.html'
+          , rssTemplatePath: 'data/rss.xml'
+          // , desiredBlogPath: 'blog'
 })
 
 var file = new(static.Server)('./public');
