@@ -8,23 +8,23 @@ var path = require('path');
 var semver = require('semver');
 
 
-var generate = function(inputPath, outputPath, templatePath, rssTemplatePath, desiredBlogPath, numPostPerPage){
+var generate = function(options){
 
-  if (inputPath && outputPath && templatePath && rssTemplatePath){
-    var input = path.resolve(inputPath);
-    var output = path.resolve(outputPath);
-    var template = path.resolve(templatePath);
-    var rssTemplate = path.resolve(rssTemplatePath);
+  if (options.inputPath && options.outputPath && options.templatePath && options.rssTemplatePath){
+    var input = path.resolve(options.inputPath);
+    var output = path.resolve(options.outputPath);
+    var template = path.resolve(options.templatePath);
+    var rssTemplate = path.resolve(options.rssTemplatePath);
   } else {
     console.error("Missing arguments");
   }
 
   var config = {
-    postsPerPage: numPostPerPage || 4
+    postsPerPage: options.numPostPerPage || 4,
   };
 
-  if (desiredBlogPath){
-    var blogPath = '/' + desiredBlogPath + '/';
+  if (options.desiredBlogPath){
+    var blogPath = '/' + options.desiredBlogPath + '/';
   } else { var blogPath = '/'; }
 
   fs.readFile(template, 'utf8', function(er, contents) {
