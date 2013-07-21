@@ -1,6 +1,6 @@
 {
   "name": "blog-maker",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Blog generator from .md post files, highly inspired from blog.nodejs.org",
   "main": "blog_maker.js",
   "dependencies" : {
@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/davidsantosdias/blog-maker.git"
+    "url": "git://github.com/diasdavid/blog-maker.git"
   },
   "keywords": [
     "blog",
