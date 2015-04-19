@@ -3,12 +3,12 @@
   "version": "0.2.1",
   "description": "Blog generator from .md post files, highly inspired from blog.nodejs.org",
   "main": "blog_maker.js",
-  "dependencies" : {
-    "node-static": "*",
+  "dependencies": {
     "ejs": "~0.7.1",
     "glob": "~3.1.10",
     "marked": "~0.2.5",
     "mkdirp": "~0.3.3",
+    "node-static": "*",
     "semver": "~1.0.14"
   },
   "scripts": {
@@ -30,5 +30,9 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/diasdavid/blog-maker/issues"
+  },
+  "devDependencies": {
+    "precommit-hook": "^2.0.1",
+    "requiresafe": "^1.2.2"
   }
 }
